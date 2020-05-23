@@ -1,0 +1,17 @@
+<%- include('partials/header') %> 
+<p class="mt-5"><%- messages('partials/messages', locals) %></p>
+    <h1 class="text-center"> <%= title %>  </h1>
+    <% if(articles.length === 0){%>
+<h2 class="text-center">No Article to Display</h2>
+   <% }  else {%> 
+<ul class="mt-3 list-group">
+    <% articles.map(article =>  {%>
+<li class="list-group-item mt-3">
+    <h2 class="mb-4"> <a href="<%= article._id %>"> <%= article.title %> </a> </h2>
+    <small>posted by <%= article.author %> </small>
+    <p class="mt-4"><%= article.body.substr(0,140) %>... </p>
+</li> 
+    <%} ) }%> 
+</ul> 
+         
+<%- include('partials/footer') %>
